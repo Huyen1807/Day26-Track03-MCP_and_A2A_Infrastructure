@@ -55,10 +55,13 @@ async def main() -> None:
             parts=[Part(root=TextPart(text=QUESTION))],
             message_id=str(uuid4()),
         )
+        
+        request_id = str(uuid4())
         request = SendMessageRequest(
             id=str(uuid4()),
             params=MSP(message=message),
         )
+        print(f"DEBUG: My Request ID is: {request_id}")
 
         print("Sending request (this may take 30-60s while agents chain)...\n")
         response = await client.send_message(request)

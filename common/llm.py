@@ -9,7 +9,7 @@ import os
 from langchain_openai import ChatOpenAI
 
 
-def get_llm() -> ChatOpenAI:
+def get_llm(temperature=0.3) -> ChatOpenAI:
     """Return a ChatOpenAI client pointed at OpenRouter."""
     return ChatOpenAI(
         model=os.getenv("OPENROUTER_MODEL", "anthropic/claude-sonnet-4-5"),
